@@ -14,13 +14,14 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
     ship = Ship(ai_settings, screen)  # Создаем корабль
     bullets = Group()  # Создание группы для хранения пуль.
-    aliens = Group()
+    aliens = Group()  # Создание группы для пришельцев
     gf.create_fleet(ai_settings, screen, ship, aliens)
 
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        gf.update_bullets(bullets)
+        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+        gf.update_aliens(ai_settings, ship, aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
