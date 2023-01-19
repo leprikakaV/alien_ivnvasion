@@ -15,14 +15,16 @@ def run_game():
                                       ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
     play_button = Button(ai_settings, screen, "Play")  # Создание кнопки Play.
-    stats = GameStats(ai_settings)  # Создание экземпляра для хранения игровой статистики.
+    # Создание экземпляра для хранения игровой статистики.
+    stats = GameStats(ai_settings)
     ship = Ship(ai_settings, screen)  # Создаем корабль
     bullets = Group()  # Создание группы для хранения пуль.
     aliens = Group()  # Создание группы для пришельцев
     gf.create_fleet(ai_settings, screen, ship, aliens)
 
     while True:
-        gf.check_events(ai_settings, screen, stats, play_button, ship, bullets)
+        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens,
+                        bullets)
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
