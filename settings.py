@@ -12,7 +12,7 @@ class Settings():
         self.ship_limit = 3
 
         # параметры пули
-        self.bullet_wight = 600
+        self.bullet_wight = 3
         self.bullet_height = 15
         self.bullet_color = (60, 0, 0)
         self.bullets_allowed = 4
